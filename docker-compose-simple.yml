@@ -1,0 +1,42 @@
+services:
+  jupyter-notebook-python:
+    image: 'quay.io/jupyter/base-notebook:latest'
+    ports:
+      - 1021:8888
+    environment:
+      - SERVICE_URL_JUPYTER_8888
+      # Configuration simple avec mot de passe
+      - JUPYTER_TOKEN=""
+    volumes:
+      - '/jupyter:/home/jovyan/work'
+      # Monte aussi votre projet RAG pour y accéder facilement
+      - '/home/roger/RAG/ragas:/home/jovyan/work/ragas'
+    command: >
+      bash -c "
+      # Créer un fichier de configuration Jupyter
+      mkdir -p ~/.jupyter &&
+      cat > ~/.jupyter/jupyter_server_config.py << 'EOF'
+      # Configuration Jupyter avec mot de passe
+      c.ServerApp.token = ''
+      c.ServerApp.password_required = True
+      c.ServerApp.allow_origin = '*'
+      c.ServerApp.ip = '0.0.0.0'
+      c.ServerApp.port = 8888
+      c.ServerApp.open_browser = False
+      c.ServerApp.allow_root = True
+      
+      # Hash du mot de passe 'Diosimhecho0@'
+      c.ServerApp.password = 'argon2:\$argon2id\$v=19\$m=10240,t=10,p=8\$mkRGz+CKI+i2XUe9tSHIQQ\$bVZa2jOUlXmu7GVxcdngqpTG60E87fsUBtzL1OLsxjs'
+      EOF
+      
+      # Démarrer Jupyter
+      echo 'Démarrage de Jupyter avec mot de passe : Diosimhecho0@'
+      start-notebook.sh
+      "
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'wget -qO- http://127.0.0.1:8888/login || exit 1'
+      interval: 30s
+      timeout: 20s
+      retries: 10

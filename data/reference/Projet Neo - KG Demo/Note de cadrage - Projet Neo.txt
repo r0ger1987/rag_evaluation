@@ -1,0 +1,20 @@
+Titre : Note de Cadrage - Projet Néo
+Date : 15 Janvier 2025
+Auteur : Carole Lambert
+Statut : Approuvé
+
+1.  **Objectif**
+    Le Projet Néo vise à développer un nouvel algorithme de recommandation pour notre plateforme e-commerce. L'objectif est d'augmenter l'engagement utilisateur de 15% avant la fin de l'année. Ce projet est une composante clé de l'initiative stratégique "Quantum Leap".
+
+2.  **Équipe Clé**
+    -   Chef de Projet : Marc Dubois
+    -   Lead Developer : Sophie Martin
+    -   Expert Data Science : David Chen
+
+3.  **Technologies envisagées**
+    -   Langage principal : Python
+    -   Framework : TensorFlow
+    -   Base de données : Neo4j pour sa capacité à modéliser les relations entre produits.
+
+4.  **Dépendances**
+    Le projet dépend fortement des données fournies par l'équipe "Data Warehouse", dirigée par Hélène Petit. Il est également lié au "Projet Sigma" qui gère l'infrastructure de déploiement.

@@ -1,0 +1,11 @@
+Titre : CR - Kick-off Technique Projet Néo
+Date : 2 Février 2025
+Participants : Marc Dubois, Sophie Martin, David Chen
+
+1.  **Décisions Techniques**
+    -   Confirmation de l'utilisation de TensorFlow pour le modèle principal. Sophie Martin sera responsable de l'implémentation.
+    -   David Chen a souligné un risque concernant la qualité des données historiques. Une action est assignée à Marc Dubois pour synchroniser avec Hélène Petit.
+
+2.  **Prochaines Étapes**
+    -   Sophie Martin doit livrer un premier PoC (Proof of Concept) pour le 1er Mars 2025.
+    -   Une revue de projet est fixée avec Carole Lambert pour le 15 Mars 2025.

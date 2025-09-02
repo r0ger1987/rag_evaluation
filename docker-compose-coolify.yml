@@ -1,0 +1,28 @@
+services:
+  jupyter-notebook-python:
+    image: 'quay.io/jupyter/base-notebook:latest'
+    ports:
+      - 1021:8888
+    environment:
+      - SERVICE_URL_JUPYTER_8888
+      # Désactiver le token et définir un mot de passe par défaut
+      - JUPYTER_TOKEN=disabled
+      - NB_USER=jovyan
+      - GIT_PYTHON_REFRESH=quiet
+    volumes:
+      - '/home/roger/RAG/ragas:/home/jovyan/work/ragas'
+    # Configuration simple sans boucle
+    command: >
+      start-notebook.sh 
+      --ServerApp.token='' 
+      --ServerApp.password='argon2:$$argon2id$$v=19$$m=10240,t=10,p=8$$mkRGz+CKI+i2XUe9tSHIQQ$$bVZa2jOUlXmu7GVxcdngqpTG60E87fsUBtzL1OLsxjs'
+      --ServerApp.allow_origin='*'
+      --ServerApp.ip='0.0.0.0'
+      --ServerApp.port=8888
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'wget -qO- http://127.0.0.1:8888/login || exit 1'
+      interval: 30s
+      timeout: 20s
+      retries: 10
