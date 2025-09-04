@@ -1,0 +1,71 @@
+{
+  "preprocess": [
+    {
+      "ocr": false,
+      "clean_headers": true,
+      "normalize_ws": true
+    },
+    {
+      "ocr": true,
+      "clean_headers": true,
+      "normalize_ws": true
+    }
+  ],
+  "embedding": [
+    {
+      "provider": "openai",
+      "model": "text-embedding-3-large"
+    },
+    {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    {
+      "provider": "nomic",
+      "model": "nomic-embed-text"
+    }
+  ],
+  "chunking": [
+    {
+      "method": "fixed",
+      "size": 512,
+      "overlap": 64
+    },
+    {
+      "method": "fixed",
+      "size": 800,
+      "overlap": 100
+    },
+    {
+      "method": "semantic",
+      "size": "auto",
+      "overlap": 64
+    }
+  ],
+  "retrieval": [
+    {
+      "type": "vector",
+      "top_k": 8
+    },
+    {
+      "type": "hybrid",
+      "bm25_weight": 0.4,
+      "top_k": 8
+    },
+    {
+      "type": "hybrid",
+      "bm25_weight": 0.6,
+      "top_k": 12
+    }
+  ],
+  "rerank": [
+    {
+      "enabled": false
+    },
+    {
+      "enabled": true,
+      "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "top_k": 5
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+Recommandations automatiques
+
+• Faible recouvrement GT↔Contexts : embeddings FR/domaine, découpe par **titres/sections**, enrichir index (titres/TOC).

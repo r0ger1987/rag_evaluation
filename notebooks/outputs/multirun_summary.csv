@@ -1,0 +1,2 @@
+run,faithfulness,answer_correctness,relevancy,context_precision,context_recall,doc_precision,doc_recall,doc_f1
+outputs,0.8472222222222222,0.8475924091940095,0.9279995257486505,0.7361111110416667,1.0,1.0,1.0,1.0
